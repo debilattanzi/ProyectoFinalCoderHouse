@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block body %}
+
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-3">EDITANDO USUARIO: {{ nombreusuario }}</h1>
+            <form action="{% url 'editarusuario' %}" method="POST"> {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="ACEPTAR">
+            </form>
+        </div>
+    </div>
+
+
+    {{ mensaje }}
+
+{% endblock %}
+

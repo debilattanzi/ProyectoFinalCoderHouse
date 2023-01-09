@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block body %}
+<h1 class="mb-5"> Editando: {{ posteo }}</h1>
+
+<form action="{% url 'editarpost' posteo.titulo %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+      <table>
+
+          {{ form.as_table }}
+
+      </table>
+    <input type="submit" value="EDITAR POST">
+
+</form>
+
+{{ mensaje }}
+
+{% endblock %}
+

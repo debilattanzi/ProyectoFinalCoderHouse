@@ -1,0 +1,17 @@
+.idea
+Blog/__pycache__
+Blog/__init__.py
+Blog/migrations/__init_.py
+Blog/migrations/__pycache__
+Proyecto_final_blog/__pycache__
+Proyecto_final_blog/__init__.py
+usuarios/__pycache__
+usuarios/__init__.py
+usuarios/migrations/__init_.py
+usuarios/migrations/__pycache__
+db.sqlite3
+mensajes/__pycache__
+mensajes/__init__.py
+mensajes/migrations/__init__.py
+mensajes/migrations/__pycache__
+media

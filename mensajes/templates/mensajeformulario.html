@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container text-center py-5">
+        <h1 class="text-primary mb-3">CREAR MENSAJE</h1>
+
+
+    <form action="{% url 'mensajeformulario' %}" method="POST" > {% csrf_token %}
+          <table>
+              {{ form.as_table }}
+          </table>
+        <input type="submit" value="CREAR MENSAJE">
+
+    </form>
+
+    </div>
+</div>
+
+{{ mensaje }}
+
+{% endblock %}
+

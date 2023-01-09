@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block body %}
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Blog Grid Start -->
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="position-relative">
+                            {% with "/media/"|add:posteo.imagenPost.name as path %}
+                                <img class="img-fluid w-100" src="{{ path }}" alt="">
+                            {% endwith %}
+                            <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                                 style="width: 100px; height: 100px; bottom: -50px; right: 50px;">
+                                <h4 class="font-weight-bold mb-n1">{{ posteo.fecha.day }}</h4>
+                                <small class="text-white text-uppercase">{{ posteo.fecha|date:'F' }}</small>
+                                <small class="text-white text-uppercase">{{ posteo.fecha.year }}</small>
+                            </div>
+                        </div>
+                        <div class="bg-secondary mb-3" style="padding: 30px;">
+                            <div class="d-flex mb-3">
+                                <div class="d-flex align-items-center">
+                                    <a class="text-muted" href="">Autor: </a>
+                                    <a class="text-muted ml-2" href="">{{ posteo.chef }}</a>
+                                </div>
+                            </div>
+                            <h4 class="font-weight-bold mb-3">{{ posteo.titulo }}</h4>
+                            <p>{{ posteo.receta }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Grid End -->
+        </div>
+    </div>
+    <!-- Blog End -->
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block body %}
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Blog Grid Start -->
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for post in posteo %}
+                        {% if user.get_username == post.chef %}
+                            <div class="col-md-12 mb-3">
+                                <div class="position-relative">
+                                    {% with "/media/"|add:post.imagenPost.name as path %}
+                                        <img class="img-fluid w-100" src="{{ path }}" alt="">
+                                    {% endwith %}
+                                    <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                                         style="width: 100px; height: 100px; bottom: -50px; right: 50px;">
+                                        <h4 class="font-weight-bold mb-n1">{{ post.fecha.day }}</h4>
+                                        <small class="text-white text-uppercase">{{ post.fecha|date:'F' }}</small>
+                                        <small class="text-white text-uppercase">{{ post.fecha.year }}</small>
+                                    </div>
+                                </div>
+                                <div class="bg-secondary mb-3" style="padding: 30px;">
+                                    <div class="d-flex mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <a class="text-muted" href="">Autor: </a>
+                                            <a class="text-muted ml-2" href="">{{ post.chef }}</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="font-weight-bold mb-3">{{ post.titulo }}</h4>
+                                    <p>{{ post.receta }}</p>
+                                    <a class="border-bottom border-primary text-uppercase text-decoration-none" href="{% url 'filtrarpost' post.titulo %}">Read More <i class="fa fa-angle-right"></i></a>
+                                    <div class="position-relative right">
+                                        <a class="btn btn-danger"
+                                           href="{% url 'borrarpost' post.titulo %}">BORRAR</a>
+                                        <a class="btn btn-success"
+                                           href="{% url 'editarpost' post.titulo %}">EDITAR</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Blog Grid End -->
+        </div>
+    </div>
+    <!-- Blog End -->
+{% endblock %}
