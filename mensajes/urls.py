@@ -17,7 +17,7 @@ from django.urls import path
 from mensajes.views import *
 
 urlpatterns = [
-    path('mensajeformulario/', mensajeformulario, name="mensajeformulario")
+    path('mensajeformulario/', mensajeformulario, name="mensajeformulario"),
 
 
 ]

@@ -9,10 +9,10 @@ from datetime import datetime
 
 
 class Mensajes(models.Model):
-    enviar = models.ForeignKey(User, on_delete=models.CASCADE, related_name="enviar")
-    recibir = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recibir")
-    mensaje = models.TextField(max_length=5000)
-    tiempo = models.DateField(auto_now_add=True)
+    enviar = models.ForeignKey(User, on_delete=models.CASCADE, related_name='enviar')
+    recibir = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recibir')
+    mensaje = models.CharField(max_length=5000)
+    tiempo = models.DateField()
 
     def __str__(self):
         return self.mensaje + " " + self.tiempo

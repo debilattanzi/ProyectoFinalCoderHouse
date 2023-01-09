@@ -39,19 +39,10 @@
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
+                    <a class="text-white px-2" href="https://www.google.com">
                         <i class="fab fa-google"></i>
                     </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-white pl-2" href="">
+                    <a class="text-white pl-2" href="https://www.youtube.com/">
                         <i class="fab fa-youtube"></i>
                     <a href="{% url 'acercademi' %}" class="nav-item nav-link">Acerca de</a>
                     </a>
@@ -76,14 +67,14 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Post</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'mostrarpost' %}" class="dropdown-item">Todos los post</a>
-                            <a href="{% url 'mispost' %}" class="dropdown-item">Mis post</a>
-                            <a href="{% url 'crearpost' %}" class="dropdown-item">Crear post</a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'mispost' user.username %}" class="dropdown-item">Mis post</a>
+                                <a href="{% url 'crearpost' %}" class="dropdown-item">Crear post</a>
+                            {% endif %}
                         </div>
                     </div>
-                    <a href="{% url 'inicio' %}" class="nav-item nav-link">Mensajes</a>
-                    <a href="price.html" class="nav-item nav-link">Price</a>
+                    <a href="{% url 'mensajeformulario' %}" class="nav-item nav-link">Mensajes</a>
                     <div class="nav-item dropdown">
-
 
 
                     </div>

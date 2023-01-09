@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from usuarios.views import *
 from usuarios.models import *
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -32,15 +33,21 @@ def crearpost(request):
         formulario = PostForm()
     return render(request, "crearpost.html", {"form": formulario, "imagen": obteneravatar(request)})
 
+
 def mostrarpost(request):
     posteo = Post.objects.all()
     return render(request, "mostrarpost.html", {"posteo": posteo, "imagen": obteneravatar(request)})
 
-@login_required
-def mispost(request):
-    posteo = Post.objects.all()
-    users = Avatar.objects.all()
-    return render(request, "mispost.html", {"posteo": posteo, "users": users, "imagen": obteneravatar(request)})
+
+
+def mispost(request, chef):
+    posteo = Post.objects.filter(chef=chef)
+    if len(posteo) != 0:
+        return render(request, "mispost.html", {"posteo": posteo, "imagen": obteneravatar(request)})
+    else:
+        return render(request, "mispost.html",
+                      {"mensaje": f"No se encontraron Post", "posteo": posteo, "imagen": obteneravatar(request)})
+
 
 @login_required
 def borrarpost(request, titulo):
@@ -74,9 +81,11 @@ def editarpost(request, titulo):
     return render(request, "editarpost.html",
                   {"form": formulario, "posteo": posteo, "imagen": obteneravatar(request)})
 
+
 def filtrarpost(request, titulo):
     posteo = Post.objects.get(titulo=titulo)
     return render(request, "filtrarpost.html", {"posteo": posteo, "imagen": obteneravatar(request)})
+
 
 def acercademi(request):
     return render(request, "acercademi.html", {"imagen": obteneravatar(request)})
