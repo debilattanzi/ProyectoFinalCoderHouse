@@ -7,12 +7,11 @@ from datetime import datetime
 # Create your models here.
 
 
-
 class Mensajes(models.Model):
-    enviar = models.ForeignKey(User, on_delete=models.CASCADE, related_name='enviar')
-    recibir = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recibir')
+    enviar_a = models.ForeignKey(User, on_delete=models.CASCADE, related_name='enviar', blank=True, default=None)
+    destinatario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recibir', blank=True, default=None)
     mensaje = models.CharField(max_length=5000)
-    tiempo = models.DateField()
+    fecha = models.DateField()
 
     def __str__(self):
-        return self.mensaje + " " + self.tiempo
+        return self.mensaje + " " + self.fecha
