@@ -73,10 +73,12 @@
                             {% endif %}
                         </div>
                     </div>
-                    <a href="{% url 'mensajeformulario' %}" class="nav-item nav-link">Mensajes</a>
                     <div class="nav-item dropdown">
-
-
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mensajes</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{% url 'mensajeformulario' %}" class="nav-item nav-link">Crear Mensaje</a>
+                            <a href="{% url 'mostrarmensaje' %}" class="nav-item nav-link">Mis mensajes</a>
+                        </div>
                     </div>
                 </div>
 

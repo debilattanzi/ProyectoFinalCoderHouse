@@ -4,20 +4,45 @@
 
 {% block body %}
 
-    <div class="jumbotron jumbotron-fluid mb-5">
-        <div class="container text-center py-5">
-            <h1 class="text-primary mb-3">MENSAJE</h1>
-            <ul>
-                {% for text in mens %}
-                <li>
-                    {{ text.fecha }} {{ text.mensaje }} - {{ text.destinatario }}
-                </li>
-
-                {% endfor %}
-
-            </ul>
+<!-- Blog Start -->
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Blog Grid Start -->
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for msj in mens %}
+                        <div class="col-md-12 mb-3">
+                            <div class="position-relative">
+                                <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                                     style="width: 100px; height: 100px; bottom: -50px; right: 50px;">
+                                    <h4 class="font-weight-bold mb-n1">{{ msj.fecha.day }}</h4>
+                                    <small class="text-white text-uppercase">{{ msj.fecha|date:'F' }}</small>
+                                    <small class="text-white text-uppercase">{{ msj.fecha.year }}</small>
+                                </div>
+                            </div>
+                            <div class="bg-secondary mb-3" style="padding: 30px;">
+                                <div class="d-flex mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <a class="text-muted" href="">Remitente: </a>
+                                        <a class="text-muted ml-2" href="">{{ msj.destinatario }}</a>
+                                    </div>
+                                </div>
+                                <p>{{ msj.mensaje }}</p>
+                                <div class="position-relative right">
+                                    <a class="btn btn-success"
+                                       href="{% url 'mensajeformulario' %}">RESPONDER</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Blog Grid End -->
         </div>
     </div>
+</div>
+    <!-- Blog End -->
 {{ mensaje }}
 
 {% endblock %}
