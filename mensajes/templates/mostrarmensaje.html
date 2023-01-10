@@ -1,0 +1,23 @@
+
+{% extends "padre.html" %}
+{% load static %}
+
+{% block body %}
+
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-3">MENSAJE</h1>
+            <ul>
+                {% for text in mens %}
+                <li>
+                    {{ text.fecha }} {{ text.mensaje }} - {{ text.destinatario }}
+                </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+{{ mensaje }}
+
+{% endblock %}

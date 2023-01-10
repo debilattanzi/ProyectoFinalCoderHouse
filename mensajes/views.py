@@ -22,4 +22,13 @@ def mensajeformulario(request):
         formulario = MensajeForm()
     return render(request, "mensajeformulario.html", {"form": formulario, "imagen": obteneravatar(request)})
 
+@login_required
+def mostrarmensaje(request):
+    usuario=request.user
+    mens = Mensajes.objects.filter(enviar_a=usuario)
+    return render(request, "mostrarmensaje.html", {"mens": mens, "imagen": obteneravatar(request)})
+
+
+def respondermensaje(request,id):
+    mens = Mensajes.objects.filter(id=id)
 

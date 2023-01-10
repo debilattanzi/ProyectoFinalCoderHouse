@@ -18,6 +18,7 @@ from mensajes.views import *
 
 urlpatterns = [
     path('mensajeformulario/', mensajeformulario, name="mensajeformulario"),
+    path('mostrarmensaje/', mostrarmensaje, name="mostrarmensaje"),
 
 
 ]

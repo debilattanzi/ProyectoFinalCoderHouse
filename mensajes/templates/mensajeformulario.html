@@ -12,14 +12,16 @@
           <table>
               {{ form.as_table }}
           </table>
-        <input type="submit" value="CREAR MENSAJE">
+        <input type="submit" value="ENVIAR MENSAJE">
 
     </form>
 
     </div>
 </div>
+<div class="container text-center py-5">
+    <h4 class="font-weight-bold mb-3" style="color:#FBF8F1";> {{ mensaje }} </h4>
+</div>
 
-{{ mensaje }}
 
 {% endblock %}
 
