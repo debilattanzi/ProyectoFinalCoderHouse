@@ -36,7 +36,11 @@ def crearpost(request):
 
 def mostrarpost(request):
     posteo = Post.objects.all()
-    return render(request, "mostrarpost.html", {"posteo": posteo, "imagen": obteneravatar(request)})
+    if len(posteo) != 0:
+        return render(request, "mostrarpost.html", {"posteo": posteo, "imagen": obteneravatar(request)})
+    else:
+        return render(request, "mostrarpost.html",
+                      {"mensaje": f"No se encontraron Post", "posteo": posteo, "imagen": obteneravatar(request)})
 
 
 

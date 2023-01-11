@@ -15,7 +15,7 @@ def mensajeformulario(request):
             fecha = informacion["fecha"]
             mensaje = informacion["mensaje"]
             enviar_a = informacion["enviar_a"]
-            chat = Mensajes(fecha=fecha, mensaje=mensaje, destinatario=(usuario), enviar_a=enviar_a)
+            chat = Mensajes(fecha=fecha, mensaje=mensaje, remitente=(usuario), enviar_a=enviar_a)
             chat.save()
         return render(request, 'inicio.html', {"mensaje": f"Mensaje enviado correctamente", "imagen": obteneravatar(request)})
     else:

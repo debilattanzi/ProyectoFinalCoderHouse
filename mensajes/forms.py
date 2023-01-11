@@ -8,4 +8,4 @@ from django.contrib.auth.models import User
 class MensajeForm(forms.ModelForm):
     class Meta:
         model = Mensajes
-        fields = ['destinatario', 'mensaje', 'enviar_a', 'fecha']
+        fields = ['remitente', 'mensaje', 'enviar_a', 'fecha']

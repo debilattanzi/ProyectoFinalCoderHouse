@@ -1,6 +1,6 @@
 # ProyectoFinalCoderHouse
-## Descripcion:
- Este proyecto es una pagina web/blog de postres en el cual quien utilice el blog debera registrarse primero y luego logearse para poder crear sus propios post, editarlos o borrarlos como asi tambien ver los post creados por los demas, ademas cada usuario una vez logeado puede elegit un avatar, modificar sus datos personales y enviar mensajes.
+## Descripcion
+ Este proyecto fue creado por Débora Lattanzi y es una pagina web/blog de postres en el cual quien utilice el blog debera registrarse primero y luego logearse para poder crear sus propios post, editarlos o borrarlos como asi tambien ver los post creados por los demas, ademas cada usuario una vez logeado puede elegit un avatar, modificar sus datos personales y enviar o recibir  mensajes.
 
 ## Rutas
 - Administrador: http://127.0.0.1:8000/admin
